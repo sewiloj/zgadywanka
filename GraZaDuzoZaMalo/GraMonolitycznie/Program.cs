@@ -26,19 +26,50 @@ namespace GraMonolitycznie
             Console.WriteLine(wylosowana);
 #endif
 
-            // 2. Człowiek proponuje rozwiązanie
-            Console.Write("Podaj swoją propozycję: ");
-            string tekst = Console.ReadLine();
-            int propozycja = Convert.ToInt32(tekst);
-            Console.WriteLine($"Przyjąłem wartość {propozycja}");
+            //wykonuj
+            bool trafiono = false; //wartownik (zwany czasami flagą)
+            do
+            {
+                #region Krok 2. Człowiek proponuje rozwiązanie
+                Console.Write("Podaj swoją propozycję: ");
+                string tekst = Console.ReadLine();
+                if (tekst.ToLower() == "x")
+                    break;
 
-            // 3. Komputer ocenia propozycję
-            if( propozycja < wylosowana )
-                Console.WriteLine("za mało");
-            else if( propozycja > wylosowana )
-                Console.WriteLine("za dużo");
-            else
-                Console.WriteLine("trafiono");
+                int propozycja = 0;
+                try
+                {
+                    propozycja = Convert.ToInt32(tekst);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Nie podano liczby!");
+                    continue;
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Liczba nie mieści się w rejestrze!");
+                    continue;
+                }
+
+                Console.WriteLine($"Przyjąłem wartość {propozycja}");
+                #endregion
+
+
+                #region Krok 3. Komputer ocenia propozycję
+                if (propozycja < wylosowana)
+                    Console.WriteLine("za mało");
+                else if (propozycja > wylosowana)
+                    Console.WriteLine("za dużo");
+                else
+                {
+                    Console.WriteLine("trafiono");
+                    trafiono = true;
+                }
+                #endregion
+            }
+            while( !trafiono );
+            //do momentu trafienia
 
             Console.WriteLine("Koniec gry");
         }

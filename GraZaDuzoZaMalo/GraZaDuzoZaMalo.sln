@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraProceduralnie", "GraProc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraModel", "GraModel\GraModel.csproj", "{EC14F911-8F80-49E3-A5F3-2FAC09D96D82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraGui", "GraGui\GraGui.csproj", "{E0C1671E-5BCD-4EF7-94C0-0C0C5FE8AD86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{EC14F911-8F80-49E3-A5F3-2FAC09D96D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC14F911-8F80-49E3-A5F3-2FAC09D96D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC14F911-8F80-49E3-A5F3-2FAC09D96D82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C1671E-5BCD-4EF7-94C0-0C0C5FE8AD86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C1671E-5BCD-4EF7-94C0-0C0C5FE8AD86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C1671E-5BCD-4EF7-94C0-0C0C5FE8AD86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C1671E-5BCD-4EF7-94C0-0C0C5FE8AD86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

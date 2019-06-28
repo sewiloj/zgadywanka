@@ -20,7 +20,7 @@ namespace GraModel
                 Kiedy = DateTime.Now;
             }
 
-            public override string ToString() => $"({Propozycja}, {Odpowiedz}, {Kiedy})";
+            public override string ToString() => $"{Propozycja}, {Odpowiedz}, {Kiedy}";
         }
 
 

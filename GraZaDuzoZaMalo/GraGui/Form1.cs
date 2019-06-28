@@ -23,6 +23,14 @@ namespace GraGui
         private void ButtonNowaGra_Click(object sender, EventArgs e)
         {
             groupBoxLosowanie.Visible = true;
+            textBoxZakresOd.Text = "";
+            textBoxZakresDo.Text = "";
+            textBoxPodajLiczbe.Text = "";
+            labelOcena.Visible = false;
+            textBoxPodajLiczbe.Enabled = true;
+            buttonSprawdz.Enabled = true;
+            labelError.Visible = false;
+
         }
 
         private void ButtonWylosuj_Click(object sender, EventArgs e)
@@ -96,6 +104,12 @@ namespace GraGui
 
             labelOcena.Visible = true;
 
+        }
+
+        private void ButtonHistoria_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(gra.Historia);
+            form2.Show();
         }
     }
 }

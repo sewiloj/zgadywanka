@@ -171,6 +171,7 @@
             this.buttonHistoria.TabIndex = 3;
             this.buttonHistoria.Text = "Historia";
             this.buttonHistoria.UseVisualStyleBackColor = true;
+            this.buttonHistoria.Click += new System.EventHandler(this.ButtonHistoria_Click);
             // 
             // labelError
             // 

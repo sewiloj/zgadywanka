@@ -23,6 +23,7 @@ namespace GraGui
         private void ButtonNowaGra_Click(object sender, EventArgs e)
         {
             groupBoxLosowanie.Visible = true;
+            groupBoxOdgadnij.Visible = false;
             textBoxZakresOd.Text = "";
             textBoxZakresDo.Text = "";
             textBoxPodajLiczbe.Text = "";
@@ -30,6 +31,9 @@ namespace GraGui
             textBoxPodajLiczbe.Enabled = true;
             buttonSprawdz.Enabled = true;
             labelError.Visible = false;
+            buttonZobacz.Enabled = false;
+            buttonPoddajSie.Enabled = true;
+            buttonHistoria.Visible = false;
 
         }
 
@@ -63,6 +67,7 @@ namespace GraGui
             groupBoxOdgadnij.Visible = true;
             groupBoxLosowanie.Visible = false;
             buttonNowaGra.Text = "Od nowa";
+            buttonHistoria.Visible = true;
         }
 
         private void ButtonSprawdz_Click(object sender, EventArgs e)
@@ -100,6 +105,7 @@ namespace GraGui
                 labelOcena.ForeColor = Color.Green;
                 textBoxPodajLiczbe.Enabled = false;
                 buttonSprawdz.Enabled = false;
+                buttonPoddajSie.Enabled = false;
             }
 
             labelOcena.Visible = true;
@@ -110,6 +116,22 @@ namespace GraGui
         {
             Form2 form2 = new Form2(gra.Historia);
             form2.Show();
+        }
+
+        private void ButtonPoddajSie_Click(object sender, EventArgs e)
+        {
+            gra.Poddaj();
+            labelOcena.Text = "Poddałeś się! Koniec gry.";
+            labelOcena.ForeColor = Color.HotPink;
+            labelOcena.Visible = true;
+            textBoxPodajLiczbe.Enabled = false;
+            buttonSprawdz.Enabled = false;
+            buttonZobacz.Enabled = true;
+        }
+
+        private void ButtonZobacz_Click(object sender, EventArgs e)
+        {
+            labelOcena.Text = $"Wylosowana liczba to {gra.CoByloWylosowane()}";
         }
     }
 }

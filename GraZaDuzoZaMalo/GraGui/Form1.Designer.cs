@@ -42,6 +42,8 @@
             this.labelOcena = new System.Windows.Forms.Label();
             this.buttonHistoria = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
+            this.buttonPoddajSie = new System.Windows.Forms.Button();
+            this.buttonZobacz = new System.Windows.Forms.Button();
             this.groupBoxLosowanie.SuspendLayout();
             this.groupBoxOdgadnij.SuspendLayout();
             this.SuspendLayout();
@@ -115,13 +117,15 @@
             // 
             // groupBoxOdgadnij
             // 
+            this.groupBoxOdgadnij.Controls.Add(this.buttonZobacz);
             this.groupBoxOdgadnij.Controls.Add(this.labelOcena);
+            this.groupBoxOdgadnij.Controls.Add(this.buttonPoddajSie);
             this.groupBoxOdgadnij.Controls.Add(this.buttonSprawdz);
             this.groupBoxOdgadnij.Controls.Add(this.labelPodajLiczbe);
             this.groupBoxOdgadnij.Controls.Add(this.textBoxPodajLiczbe);
             this.groupBoxOdgadnij.Location = new System.Drawing.Point(12, 42);
             this.groupBoxOdgadnij.Name = "groupBoxOdgadnij";
-            this.groupBoxOdgadnij.Size = new System.Drawing.Size(312, 114);
+            this.groupBoxOdgadnij.Size = new System.Drawing.Size(312, 145);
             this.groupBoxOdgadnij.TabIndex = 2;
             this.groupBoxOdgadnij.TabStop = false;
             this.groupBoxOdgadnij.Text = "Odgadnij";
@@ -171,6 +175,7 @@
             this.buttonHistoria.TabIndex = 3;
             this.buttonHistoria.Text = "Historia";
             this.buttonHistoria.UseVisualStyleBackColor = true;
+            this.buttonHistoria.Visible = false;
             this.buttonHistoria.Click += new System.EventHandler(this.ButtonHistoria_Click);
             // 
             // labelError
@@ -182,11 +187,32 @@
             this.labelError.TabIndex = 5;
             this.labelError.Visible = false;
             // 
+            // buttonPoddajSie
+            // 
+            this.buttonPoddajSie.Location = new System.Drawing.Point(6, 104);
+            this.buttonPoddajSie.Name = "buttonPoddajSie";
+            this.buttonPoddajSie.Size = new System.Drawing.Size(75, 23);
+            this.buttonPoddajSie.TabIndex = 6;
+            this.buttonPoddajSie.Text = "Poddaj się!";
+            this.buttonPoddajSie.UseVisualStyleBackColor = true;
+            this.buttonPoddajSie.Click += new System.EventHandler(this.ButtonPoddajSie_Click);
+            // 
+            // buttonZobacz
+            // 
+            this.buttonZobacz.Enabled = false;
+            this.buttonZobacz.Location = new System.Drawing.Point(149, 104);
+            this.buttonZobacz.Name = "buttonZobacz";
+            this.buttonZobacz.Size = new System.Drawing.Size(157, 24);
+            this.buttonZobacz.TabIndex = 7;
+            this.buttonZobacz.Text = "Zobacz wylosowaną liczbę";
+            this.buttonZobacz.UseVisualStyleBackColor = true;
+            this.buttonZobacz.Click += new System.EventHandler(this.ButtonZobacz_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 386);
+            this.ClientSize = new System.Drawing.Size(337, 197);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonHistoria);
             this.Controls.Add(this.groupBoxOdgadnij);
@@ -219,6 +245,8 @@
         private System.Windows.Forms.Label labelOcena;
         private System.Windows.Forms.Button buttonHistoria;
         private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.Button buttonPoddajSie;
+        private System.Windows.Forms.Button buttonZobacz;
     }
 }
 

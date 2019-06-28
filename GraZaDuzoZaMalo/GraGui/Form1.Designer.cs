@@ -41,6 +41,7 @@
             this.textBoxPodajLiczbe = new System.Windows.Forms.TextBox();
             this.labelOcena = new System.Windows.Forms.Label();
             this.buttonHistoria = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
             this.groupBoxLosowanie.SuspendLayout();
             this.groupBoxOdgadnij.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,7 @@
             this.groupBoxLosowanie.Controls.Add(this.buttonWylosuj);
             this.groupBoxLosowanie.Controls.Add(this.labelZakresDo);
             this.groupBoxLosowanie.Controls.Add(this.labelZakresOd);
-            this.groupBoxLosowanie.Location = new System.Drawing.Point(13, 42);
+            this.groupBoxLosowanie.Location = new System.Drawing.Point(12, 42);
             this.groupBoxLosowanie.Name = "groupBoxLosowanie";
             this.groupBoxLosowanie.Size = new System.Drawing.Size(312, 128);
             this.groupBoxLosowanie.TabIndex = 1;
@@ -171,11 +172,21 @@
             this.buttonHistoria.Text = "Historia";
             this.buttonHistoria.UseVisualStyleBackColor = true;
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(9, 364);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 13);
+            this.labelError.TabIndex = 5;
+            this.labelError.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 386);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonHistoria);
             this.Controls.Add(this.groupBoxOdgadnij);
             this.Controls.Add(this.groupBoxLosowanie);
@@ -187,6 +198,7 @@
             this.groupBoxOdgadnij.ResumeLayout(false);
             this.groupBoxOdgadnij.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -205,6 +217,7 @@
         private System.Windows.Forms.TextBox textBoxPodajLiczbe;
         private System.Windows.Forms.Label labelOcena;
         private System.Windows.Forms.Button buttonHistoria;
+        private System.Windows.Forms.Label labelError;
     }
 }
 

@@ -27,9 +27,31 @@ namespace GraGui
 
         private void ButtonWylosuj_Click(object sender, EventArgs e)
         {
-            int zakresOd = int.Parse(textBoxZakresOd.Text);
-            int zakresDo = int.Parse(textBoxZakresDo.Text);
-            gra = new Gra(zakresOd, zakresDo);
+            try
+            {
+                int zakresOd = int.Parse(textBoxZakresOd.Text);
+                int zakresDo = int.Parse(textBoxZakresDo.Text);
+                if (zakresOd >= zakresDo)
+                    throw new ArgumentOutOfRangeException();
+                gra = new Gra(zakresOd, zakresDo);
+            }
+            catch(FormatException)
+            {
+                labelError.Text = "Błąd! Wprowadziłeś błędne znaki!";
+                labelError.ForeColor = Color.Red;
+                labelError.Visible = true;
+                return;
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                labelError.Text = "Błąd! Podałeś zły zakres!";
+                labelError.ForeColor = Color.Red;
+                labelError.Visible = true;
+                return;
+            }
+
+            labelError.Visible = false;
+
             groupBoxOdgadnij.Visible = true;
             groupBoxLosowanie.Visible = false;
             buttonNowaGra.Text = "Od nowa";
@@ -37,8 +59,23 @@ namespace GraGui
 
         private void ButtonSprawdz_Click(object sender, EventArgs e)
         {
-            int propozycja = int.Parse(textBoxPodajLiczbe.Text);
+            int propozycja;
+            try
+            {
+                propozycja = int.Parse(textBoxPodajLiczbe.Text);
+            }
+            catch(FormatException)
+            {
+                labelError.Text = "Błąd! Wprowadziłeś błędne znaki!";
+                labelError.ForeColor = Color.Red;
+                labelError.Visible = true;
+                return;
+            }
+
+            labelError.Visible = false;
+
             Odp odpowiedz = gra.Ocena(propozycja);
+
             if (odpowiedz == Odp.ZaMalo)
             {
                 labelOcena.Text = "Za mało! Spróbuj jeszcze raz!";

@@ -21,6 +21,7 @@ namespace GraModel
             ZakresDo = max;
             wylosowana = Losuj(ZakresOd, ZakresDo);
             Stan = StanGry.Trwa;
+            Historia = new List<Ruch>();
         }
         private int Losuj(int min = 1, int max = 100)
         {
@@ -42,7 +43,7 @@ namespace GraModel
                 Stan = StanGry.Odgadnieta;
                 odp = Odp.Trafiono;
             }
-
+            Historia.Add(new Ruch(propozycja, odp));
             return odp;
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GraModel;
 using static GraModel.Gra;
 
@@ -79,7 +80,7 @@ namespace GraCMD
             public bool Play()
             {
                 Gra gra = new Gra(min, max);
-
+                bool trafiono = false;
                 do
                 {
                     Console.WriteLine("Jeśli chcesz wyświetlić historię odpowiedzi wpisz 'h'");
@@ -93,9 +94,9 @@ namespace GraCMD
                     catch (FormatException)
                     {
                         if (propozycjaS.ToUpper() == "H")
-                            ;
+                            ShowHistory(gra.Historia);
                         else
-                        Console.WriteLine("Nie podałeś liczby ani 'h'!");
+                            Console.WriteLine("Nie podałeś liczby ani 'h'!");
                         continue;
                     }
                     catch (ArgumentOutOfRangeException)
@@ -103,13 +104,24 @@ namespace GraCMD
                         Console.WriteLine("Wykraczasz poza ustalony przez siebie zakres!");
                         continue;
                     }
-                    
-                    Console.WriteLine($"{gra.Ocena(propozycja)}");
-                } while (gra.Ocena(propozycja) != Odp.Trafiono);
+                    Odp ocena = gra.Ocena(propozycja);
+                    if (ocena == Odp.Trafiono)
+                        trafiono = true;
+                    Console.WriteLine($"{ocena}");
+                } while (!trafiono);
 
                 return false;
 
             }
+
+            public void ShowHistory(List<Ruch> historia)
+            {
+                foreach (var h in historia)
+                {
+                    Console.WriteLine(h.ToString());
+                }
+            }
+
         }
     }
 }

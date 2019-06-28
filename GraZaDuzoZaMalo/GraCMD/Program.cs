@@ -8,6 +8,7 @@ namespace GraCMD
     {
         static void Main(string[] args)
         {
+
             ConsoleKeyInfo userClick;
             do
             {
@@ -17,59 +18,98 @@ namespace GraCMD
                 userClick = Console.ReadKey();
             } while (userClick.Key != ConsoleKey.X && userClick.Key != ConsoleKey.S);
 
-            if(userClick.Key == ConsoleKey.X)
+            if (userClick.Key == ConsoleKey.X)
             {
                 Console.WriteLine("Zakończyłeś program, do zobaczenia!");
                 return;
             }
 
             Console.WriteLine("\nLecimy dalej!");
-            Play();
+
+            Game game = new Game();
+            bool repeat = true;
+            do
+            {
+                while (!game.Init()) ;
+
+                repeat = game.Play();
+
+            } while (repeat);
+
+
+
 
         }
 
-        private static void Play()
+        class Game
         {
-            int min = 0;
-            int max = 0;
-            Console.WriteLine("Podaj zakres");
-            try
+            int min;
+            int max;
+            string propozycjaS;
+            int propozycja;
+            public bool Init()
             {
-                Console.Write("Pierwsza liczba: ");
-                min = int.Parse(Console.ReadLine());
+                Console.WriteLine("Podaj zakres");
+                try
+                {
+                    Console.Write("Pierwsza liczba: ");
+                    min = int.Parse(Console.ReadLine());
 
-                Console.Write("Druga liczba: ");
-                max = int.Parse(Console.ReadLine());
+                    Console.Write("Druga liczba: ");
+                    max = int.Parse(Console.ReadLine());
 
-                if (min >= max)
-                    throw new ArgumentOutOfRangeException();
+                    if (min >= max)
+                        throw new ArgumentOutOfRangeException();
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Nie podałeś liczb!");
+                    return false;
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("Pierwsza liczba nie może być większa lub taka sama jak druga!");
+                    return false;
+                }
+
+                return true;
+            }
+
+            public bool Play()
+            {
+                Gra gra = new Gra(min, max);
+
+                do
+                {
+                    Console.WriteLine("Jeśli chcesz wyświetlić historię odpowiedzi wpisz 'h'");
+                    Console.Write("Podaj swoją propozycję: ");
+                    propozycjaS = Console.ReadLine();
+
+                    try
+                    {
+                        propozycja = int.Parse(propozycjaS);
+                    }
+                    catch (FormatException)
+                    {
+                        if (propozycjaS.ToUpper() == "H")
+                            ;
+                        else
+                        Console.WriteLine("Nie podałeś liczby ani 'h'!");
+                        continue;
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        Console.WriteLine("Wykraczasz poza ustalony przez siebie zakres!");
+                        continue;
+                    }
+                    
+                    Console.WriteLine($"{gra.Ocena(propozycja)}");
+                } while (gra.Ocena(propozycja) != Odp.Trafiono);
+
+                return false;
 
             }
-            catch(FormatException)
-            {
-                Console.WriteLine("Nie podałeś liczb!");
-                Play();
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                Console.WriteLine("Pierwsza liczba nie może być większa lub taka sama jak druga!");
-                Play();
-            }
-
-            Gra gra = new Gra(min, max);
-            int propozycja = -1;
-            do
-            {
-                Console.Write("Podaj swoją propozycję: ");
-                propozycja = int.Parse(Console.ReadLine());
-                Console.Write($"{gra.Ocena(propozycja)}");
-            } while (gra.Ocena(propozycja) != Odp.Trafiono);
-
-
-
-
-
-
         }
     }
 }

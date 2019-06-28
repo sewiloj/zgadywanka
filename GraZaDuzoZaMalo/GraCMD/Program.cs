@@ -7,7 +7,7 @@ namespace GraCMD
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
 
             ConsoleKeyInfo userClick;
@@ -37,7 +37,8 @@ namespace GraCMD
 
             } while (repeat);
 
-
+            if (repeat == false)
+                Main();
 
 
         }
@@ -84,6 +85,7 @@ namespace GraCMD
                 do
                 {
                     Console.WriteLine("Jeśli chcesz wyświetlić historię odpowiedzi wpisz 'h'");
+                    Console.WriteLine("Jeśli chcesz się poddać wpisz 'p'");
                     Console.Write("Podaj swoją propozycję: ");
                     propozycjaS = Console.ReadLine();
 
@@ -95,6 +97,11 @@ namespace GraCMD
                     {
                         if (propozycjaS.ToUpper() == "H")
                             ShowHistory(gra.Historia);
+                        else if (propozycjaS.ToUpper() == "P")
+                        {
+                            Surrender(gra);
+                            break;
+                        }
                         else
                             Console.WriteLine("Nie podałeś liczby ani 'h'!");
                         continue;
@@ -120,6 +127,20 @@ namespace GraCMD
                 {
                     Console.WriteLine(h.ToString());
                 }
+            }
+
+            public void Surrender(Gra gra)
+            {
+                gra.Poddaj();
+                Console.WriteLine("Poddałeś się! Czy chcesz zobaczyć jaka liczba została wylosowana? T/N");
+                ConsoleKeyInfo yesOrNo;
+                do
+                {
+                    yesOrNo = Console.ReadKey();
+                } while (yesOrNo.Key != ConsoleKey.T && yesOrNo.Key != ConsoleKey.N);
+
+                if (yesOrNo.Key == ConsoleKey.T)
+                    Console.WriteLine($"\nWylosowana liczba to: {gra.CoByloWylosowane()}");
             }
 
         }

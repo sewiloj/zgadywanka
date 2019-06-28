@@ -31,6 +31,8 @@ namespace GraGui
             int zakresDo = int.Parse(textBoxZakresDo.Text);
             gra = new Gra(zakresOd, zakresDo);
             groupBoxOdgadnij.Visible = true;
+            groupBoxLosowanie.Visible = false;
+            buttonNowaGra.Text = "Od nowa";
         }
 
         private void ButtonSprawdz_Click(object sender, EventArgs e)
@@ -49,8 +51,10 @@ namespace GraGui
             }
             else
             {
-                labelOcena.Text = "Trafiono!";
+                labelOcena.Text = "Trafiono! Koniec gry.";
                 labelOcena.ForeColor = Color.Green;
+                textBoxPodajLiczbe.Enabled = false;
+                buttonSprawdz.Enabled = false;
             }
 
             labelOcena.Visible = true;

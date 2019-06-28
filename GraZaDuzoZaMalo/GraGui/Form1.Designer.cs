@@ -40,6 +40,7 @@
             this.labelPodajLiczbe = new System.Windows.Forms.Label();
             this.textBoxPodajLiczbe = new System.Windows.Forms.TextBox();
             this.labelOcena = new System.Windows.Forms.Label();
+            this.buttonHistoria = new System.Windows.Forms.Button();
             this.groupBoxLosowanie.SuspendLayout();
             this.groupBoxOdgadnij.SuspendLayout();
             this.SuspendLayout();
@@ -117,7 +118,7 @@
             this.groupBoxOdgadnij.Controls.Add(this.buttonSprawdz);
             this.groupBoxOdgadnij.Controls.Add(this.labelPodajLiczbe);
             this.groupBoxOdgadnij.Controls.Add(this.textBoxPodajLiczbe);
-            this.groupBoxOdgadnij.Location = new System.Drawing.Point(13, 176);
+            this.groupBoxOdgadnij.Location = new System.Drawing.Point(12, 42);
             this.groupBoxOdgadnij.Name = "groupBoxOdgadnij";
             this.groupBoxOdgadnij.Size = new System.Drawing.Size(312, 114);
             this.groupBoxOdgadnij.TabIndex = 2;
@@ -161,16 +162,26 @@
             this.labelOcena.Text = "Ocena";
             this.labelOcena.Visible = false;
             // 
+            // buttonHistoria
+            // 
+            this.buttonHistoria.Location = new System.Drawing.Point(250, 12);
+            this.buttonHistoria.Name = "buttonHistoria";
+            this.buttonHistoria.Size = new System.Drawing.Size(75, 23);
+            this.buttonHistoria.TabIndex = 3;
+            this.buttonHistoria.Text = "Historia";
+            this.buttonHistoria.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 386);
+            this.Controls.Add(this.buttonHistoria);
             this.Controls.Add(this.groupBoxOdgadnij);
             this.Controls.Add(this.groupBoxLosowanie);
             this.Controls.Add(this.buttonNowaGra);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Za dużo, za mało";
             this.groupBoxLosowanie.ResumeLayout(false);
             this.groupBoxLosowanie.PerformLayout();
             this.groupBoxOdgadnij.ResumeLayout(false);
@@ -193,6 +204,7 @@
         private System.Windows.Forms.Label labelPodajLiczbe;
         private System.Windows.Forms.TextBox textBoxPodajLiczbe;
         private System.Windows.Forms.Label labelOcena;
+        private System.Windows.Forms.Button buttonHistoria;
     }
 }
 
